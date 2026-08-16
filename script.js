@@ -21,7 +21,7 @@ PHOTO_FILES.forEach(p => {
   card.innerHTML = `
     <div class="pin"></div>
     <div class="frame">
-      <img src="${p.src}" alt="${p.label}" loading="lazy"
+      <img src="${p.src}" alt="${p.label}"
         onerror="this.parentElement.classList.add('no-photo'); this.remove();">
     </div>
     <div class="label mono">${p.label}</div>
