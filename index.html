@@ -1,1 +1,225 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, BHAI — Case No. 24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Courier+Prime:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <canvas id="stars-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+  <div id="balloon-layer"></div>
+
+  <button id="soundToggle" aria-label="Toggle music">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+    <span id="soundToggleLabel">Music On</span>
+  </button>
+
+  <!-- ============================================================
+     GAVEL GATE
+     ============================================================ -->
+  <div id="gate">
+    <p class="eyebrow mono">In the Court of Birthdays</p>
+    <div class="seal-ring">
+      <button class="gavel-btn" id="gavelBtn" aria-label="Strike the gavel to enter">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect x="30" y="6" width="14" height="20" rx="3" transform="rotate(45 37 16)" />
+          <line x1="26" y1="27" x2="10" y2="43" />
+          <line x1="6" y1="47" x2="18" y2="59" />
+          <line x1="12" y1="41" x2="24" y2="53" />
+        </svg>
+      </button>
+      <div class="impact-ring" id="impactRing"></div>
+    </div>
+    <h1 class="display">The Honourable Court<br>of Birthdays</h1>
+    <p class="case-line mono">Case No. 24 / LLB / BHAI</p>
+    <p class="tap-hint mono">— tap the gavel to open proceedings —</p>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <p class="case-number mono">Case No. 24-LLB-BHAI &nbsp;·&nbsp; Filed with love</p>
+      <h1 class="display">Happy Birthday,<br><span class="gold">BHAI</span></h1>
+      <p class="subline">This court is now in session to formally celebrate the finest brother, the most stubborn
+        debater, and — soon — the most dangerous man in any courtroom.</p>
+      <div class="age-badge">
+        <span class="num display">24</span>
+        <span class="cap mono">Years, Your Honour</span>
+      </div>
+      <div class="scroll-cue mono"><span></span>SCROLL FOR PROCEEDINGS</div>
+    </section>
+
+    <!-- CHARGES -->
+    <section id="charges">
+      <div class="reveal sheet">
+        <p class="eyebrow-label">Charge Sheet</p>
+        <h2 class="display">The Charges Against BHAI</h2>
+        <p class="intro">Filed this year, on the occasion of his 24th birthday, the following charges are read into
+          record:</p>
+        <ol class="charge-list">
+          <li>
+            <div>
+              <div class="charge-title">Repeated Acts of Being a Great Brother</div>
+              <div class="charge-desc">Consistently present, occasionally annoying, permanently loved. No bail
+                requested.</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="charge-title">Aggravated Argument-Winning</div>
+              <div class="charge-desc">Currently pursuing an LLB and already impossible to out-argue at the dinner
+                table. Prosecution rests.</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="charge-title">Unauthorized Growth Into a Fine Young Man</div>
+              <div class="charge-desc">Turned 24 without so much as a warning. Family left emotionally unprepared.</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="charge-title">Conspiracy to Be Endlessly Missed When Away</div>
+              <div class="charge-desc">The house is quieter without him in it. Evidence is overwhelming.</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- VERDICT -->
+    <section id="verdict">
+      <div class="reveal verdict-card">
+        <div class="seal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8L12 2z" />
+          </svg>
+        </div>
+        <p class="eyebrow-label mono">The Verdict</p>
+        <h2 class="display">Found <em>guilty</em> of being loved by everyone who knows him, sentenced to a lifetime of
+          celebration.</h2>
+        <p class="fine-print">So ordered, by unanimous decision of the family</p>
+      </div>
+    </section>
+
+    <!-- EXHIBIT A -->
+    <section id="exhibit">
+      <div class="reveal">
+        <p class="eyebrow-label">Exhibit A</p>
+        <h2 class="display">Evidence Submitted</h2>
+        <p class="intro">A small selection of photographic evidence, submitted in support of the charges above.</p>
+        <div class="evidence-grid" id="evidenceGrid"></div>
+      </div>
+    </section>
+
+    <!-- CAKE -->
+    <section id="cake">
+      <div class="reveal">
+        <h2 class="display">Order of the Court</h2>
+        <p class="intro">The court hereby orders one (1) cake, four (4) candles, and one (1) wish, to be executed
+          immediately.</p>
+        <p class="cake-hint">tap each candle, or bang the gavel below to blow them all out at once</p>
+        <div class="cake-wrap">
+          <div class="cake">
+            <div class="candles" id="candles">
+              <div class="candle" data-i="1"><span class="flame"></span><span class="wick"></span></div>
+              <div class="candle" data-i="2"><span class="flame"></span><span class="wick"></span></div>
+              <div class="candle" data-i="3"><span class="flame"></span><span class="wick"></span></div>
+              <div class="candle" data-i="4"><span class="flame"></span><span class="wick"></span></div>
+            </div>
+            <div class="cake-body">
+              <div class="tier tier-1"></div>
+              <div class="tier tier-2"></div>
+              <div class="plate"></div>
+            </div>
+          </div>
+        </div>
+        <button class="blow-btn mono" id="blowAllBtn">Bang the Gavel — Blow Out All Candles</button>
+        <p class="cake-cheer display" id="cakeCheer">Order granted. Make a wish, BHAI.</p>
+      </div>
+    </section>
+
+    <!-- LOCKED TESTIMONY -->
+    <section id="testimony">
+      <div class="reveal">
+        <p class="eyebrow-label">Sealed Testimony</p>
+        <h2 class="display" style="margin-bottom:28px;">A Statement, Filed Under Seal</h2>
+
+        <div class="lockbox" id="lockbox">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="10" width="16" height="10" rx="2" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+          </svg>
+          <h3 class="display">This statement is under seal</h3>
+          <p class="hint mono">enter the 4-digit code to unlock</p>
+          <div class="pin-row" id="pinRow">
+            <input type="tel" inputmode="numeric" maxlength="1" class="pin-digit">
+            <input type="tel" inputmode="numeric" maxlength="1" class="pin-digit">
+            <input type="tel" inputmode="numeric" maxlength="1" class="pin-digit">
+            <input type="tel" inputmode="numeric" maxlength="1" class="pin-digit">
+          </div>
+          <button class="unlock-btn mono" id="unlockBtn">Unlock Statement</button>
+          <p class="lock-msg mono" id="lockMsg"></p>
+        </div>
+
+        <div class="letter" id="letter">
+          <p><span class="drop-cap">H</span>appy Birthday, BHAI! 🎉 Wishing you the happiest birthday and the most
+            amazing year ahead. You mean so much to this family, and every year with you is a blessing we don't take for
+            granted.</p>
+          <p>May Allah bless you with health, happiness, and success in everything you do. May all your dreams come true
+            and every good thing find its way to you.</p>
+          <p>Thank you for being who you are — for your love, your smile, and for making this family complete. I hope
+            your birthday is as wonderful as you are.</p>
+          <p>And okay, just one fun wish too — may this year bring you unlimited cake, zero traffic jams, and wifi that
+            never disconnects. You deserve all the small joys too! 😄</p>
+          <p>Happy Birthday! Love you lots.</p>
+          <p class="sign">— With all my love, always</p>
+
+          <hr class="letter-divider">
+
+          <p class="urdu">سالگرہ مبارک ہو، بھائی! 🎉 آپ کو سالگرہ کی ڈھیر ساری مبارکباد اور آنے والے سال کے لیے نیک
+            خواہشات۔ آپ اس خاندان کے لیے بہت اہم ہیں، اور آپ کے ساتھ گزرا ہر سال ایک نعمت ہے۔</p>
+          <p class="urdu">اللہ آپ کو صحت، خوشیاں اور ہر کام میں کامیابی عطا فرمائے۔ آپ کے سب خواب پورے ہوں اور ہر اچھی
+            چیز آپ تک پہنچے۔</p>
+          <p class="urdu">شکریہ کہ آپ ایسے ہیں جیسے ہیں — اپنی محبت، اپنی مسکراہٹ، اور اس خاندان کو مکمل بنانے کے لیے۔
+            امید ہے آپ کی سالگرہ اتنی ہی خوبصورت ہو جتنے آپ ہیں۔</p>
+          <p class="urdu">اور ہاں، ایک مزے کی خواہش بھی — اس سال آپ کو ڈھیر سارا کیک ملے، کبھی ٹریفک جام نہ ہو، اور وائی
+            فائی کبھی بند نہ ہو۔ آپ چھوٹی چھوٹی خوشیوں کے بھی اتنے ہی حقدار ہیں! 😄</p>
+          <p class="urdu">سالگرہ مبارک ہو! بہت پیار۔</p>
+          <p class="urdu sign-urdu">— ہمیشہ، آپ کی محبت کے ساتھ</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section id="closing">
+      <div class="reveal">
+        <h2 class="display">Case Closed.<br>Sentence: A Lifetime of Happiness.</h2>
+        <div class="stamp mono">Approved &amp; Celebrated</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mono">FILED WITH LOVE · CASE NO. 18-LLB-BHAI · NEVER TO BE APPEALED</footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
