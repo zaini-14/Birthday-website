@@ -5,14 +5,10 @@
    ================================================================ */
 const PHOTO_FILES = [
   { src: "photo1.jpg", label: "Exhibit A-1" },
-  { src: "photo2.jpg", label: "Exhibit A-2" },
-  { src: "photo3.jpg", label: "Exhibit A-3" },
-  { src: "photo4.jpg", label: "Exhibit A-4" },
-  { src: "photo5.jpg", label: "Exhibit A-5" },
-  { src: "photo6.jpg", label: "Exhibit A-6" },
-  { src: "photo7.jpg", label: "Exhibit A-7" },
-  { src: "photo8.jpg", label: "Exhibit A-8" },
-  { src: "photo9.jpg", label: "Exhibit A-9" },
+  { src: "photo4.jpg", label: "Exhibit A-2" },
+  { src: "photo6.jpg", label: "Exhibit A-3" },
+  { src: "photo8.jpg", label: "Exhibit A-4" },
+  { src: "photo9.jpg", label: "Exhibit A-5" },
 ];
 const evidenceGrid = document.getElementById('evidenceGrid');
 PHOTO_FILES.forEach(p => {
